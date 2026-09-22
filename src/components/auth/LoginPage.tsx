@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext.js';
+import { api } from '../../lib/api.js';
 import { Store, ShieldCheck, Lock, Building2, KeyRound, Sparkles, ArrowRight, Loader2 } from 'lucide-react';
 
 export const LoginPage: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwitchToRegister }) => {
@@ -19,23 +20,8 @@ export const LoginPage: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwi
     setLoading(true);
     setError(null);
     try {
-      const isEmail = cnpjOrEmail.includes('@');
-      if (isEmail) {
-        await login(cnpjOrEmail);
-      } else {
-        // Tentar login por CNPJ chamando api diretamente ou passando via login do AuthContext
-        // Como o AuthContext usa api.login(email), vamos ajustar AuthContext ou criar um método dedicado
-        // Vamos usar fetch direto ou adaptar
-        const res = await fetch('/api/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ cnpj: cnpjOrEmail, password }),
-        });
-        const data = await res.json();
-        if (!res.ok) throw new Error(data.error || 'Erro ao autenticar');
-        // Recarregar via login com email do usuário retornado
-        await login(data.user.email);
-      }
+      const res = await api.login(cnpjOrEmail);
+      await login(res.user.email);
     } catch (err: any) {
       setError(err.message || 'Falha no login. Verifique as credenciais.');
     } finally {
@@ -49,18 +35,10 @@ export const LoginPage: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwi
     setLoading(true);
     setError(null);
     try {
-      const isEmail = identifier.includes('@');
-      const body = isEmail ? { email: identifier } : { cnpj: identifier };
-      const res = await fetch('/api/auth/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body),
-      });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || 'Erro');
-      await login(data.user.email);
+      const res = await api.login(identifier);
+      await login(res.user.email);
     } catch (err: any) {
-      setError(err.message);
+      setError(err.message || 'Falha no login.');
     } finally {
       setLoading(false);
     }
