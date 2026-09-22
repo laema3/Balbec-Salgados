@@ -92,6 +92,26 @@ export const LoginPage: React.FC<{ onSwitchToRegister?: () => void }> = ({ onSwi
             </div>
           )}
 
+          {/* Acesso Instantâneo Local (Sem Confirmação) */}
+          <div className="mb-6">
+            <button
+              type="button"
+              onClick={() => handleQuickDemo('admin@balbec.com.br')}
+              className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-700 text-white font-black rounded-xl shadow-md transition flex items-center justify-center gap-2 text-xs uppercase tracking-wider"
+            >
+              <Sparkles className="w-4 h-4" />
+              <span>⚡ Acesso Instantâneo Local (Sem Senha)</span>
+            </button>
+            <p className="text-[10px] text-stone-400 text-center mt-1.5 font-medium">
+              Ideal para uso local imediato e sem barreiras de confirmação.
+            </p>
+          </div>
+
+          <div className="relative my-4">
+            <div className="absolute inset-0 flex items-center"><div className="w-full border-t border-stone-200" /></div>
+            <div className="relative flex justify-center text-[10px] uppercase font-bold tracking-widest text-stone-400 bg-white px-2">ou acesso por CNPJ / E-mail</div>
+          </div>
+
           <form onSubmit={handleLogin} className="space-y-4">
             <div>
               <label className="block text-xs font-bold text-stone-700 mb-1.5 uppercase tracking-wider">

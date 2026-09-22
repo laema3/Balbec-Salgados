@@ -100,8 +100,8 @@ apiRouter.post('/auth/register', (req, res) => {
     cidade: body.cidade || '',
     estado: body.estado || 'SP',
     cep: body.cep || '',
-    status: 'PENDENTE', // Regra: Após cadastro -> PENDENTE DE APROVAÇÃO
-    status_motivo: 'Cadastro recente realizado pelo portal. Aguardando aprovação pela Balbec Salgados.',
+    status: 'APROVADO', // Uso local sem confirmação prévia
+    status_motivo: 'Aprovado automaticamente para uso local.',
     valor_minimo_compra: 500.00,
     percentual_desconto: 5,
     meta_mensal: 2500.00,
