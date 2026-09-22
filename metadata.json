@@ -1,0 +1,6 @@
+{
+  "name": "Balbec Salgados — Portal do Franqueado",
+  "description": "Portal B2B e PWA exclusivo para franqueados da Balbec Salgados realizarem pedidos, acompanharem preparo, consultarem metas e regras comerciais.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

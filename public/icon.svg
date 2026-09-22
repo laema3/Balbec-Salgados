@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="balbec-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="50%" stop-color="#c2410c"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+    <linearGradient id="gold-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="50%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Rounded Base Badge -->
+  <rect width="512" height="512" rx="128" fill="url(#balbec-bg)"/>
+  
+  <!-- Subtle circular border -->
+  <circle cx="256" cy="256" r="220" fill="none" stroke="#fed7aa" stroke-width="6" stroke-opacity="0.3" stroke-dasharray="12 8"/>
+  
+  <!-- Inner circular glow -->
+  <circle cx="256" cy="256" r="195" fill="#7c2d12" fill-opacity="0.4"/>
+
+  <!-- Artisan Coxinha / Pastry Silhouette -->
+  <g filter="url(#shadow)">
+    <!-- Main Drop Shape -->
+    <path d="M256 100 C270 150 350 240 350 310 C350 370 308 410 256 410 C204 410 162 370 162 310 C162 240 242 150 256 100 Z" fill="url(#gold-glow)"/>
+    <!-- Crust highlight texture -->
+    <path d="M245 130 C252 170 310 245 310 305 C310 325 300 350 285 365 C265 345 285 270 240 210 C228 190 235 155 245 130 Z" fill="#ffffff" fill-opacity="0.35"/>
+    <path d="M256 90 L256 110" stroke="#78350f" stroke-width="8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Crown / Quality Stars -->
+  <path d="M256 62 L262 76 L278 76 L265 85 L270 100 L256 90 L242 100 L247 85 L234 76 L250 76 Z" fill="#fef08a"/>
+  
+  <!-- Brand Text Arc or Badge Banner -->
+  <rect x="106" y="380" width="300" height="68" rx="20" fill="#431407" stroke="#fbbf24" stroke-width="3" filter="url(#shadow)"/>
+  <text x="256" y="424" font-family="'Outfit', 'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="900" fill="#fef08a" text-anchor="middle" letter-spacing="4">BALBEC</text>
+  <text x="256" y="442" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#fed7aa" text-anchor="middle" letter-spacing="6">FRANQUEADOS</text>
+</svg>
